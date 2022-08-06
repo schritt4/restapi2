@@ -9,8 +9,7 @@ from .models import Curation
 class CurationList(APIView):    
     def get(self, request):    # Curation 리스트 보여주기
         curations = Curation.objects.all()
-
-        serializer = CurationSerializer(curations, many=True)   # 여러개의 객체를 serialize하려면 many=True
+        serializer = CurationSerializer(curations, many=True, context={'request':request})   # 여러개의 객체를 serialize하려면 many=True
         return Response(serializer.data)
 
 class CurationDetail(APIView):
@@ -22,6 +21,6 @@ class CurationDetail(APIView):
 
     def get(self, request, pk, format=None):
         curations = self.get_object(pk)
-        serializer = CurationSerializer(curations)
+        serializer = CurationSerializer(curations, context={'request':request})
         return Response(serializer.data)
 

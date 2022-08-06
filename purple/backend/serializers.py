@@ -9,6 +9,7 @@ class UserSerializer(serializers.ModelSerializer):
 
 class CurationSerializer(serializers.ModelSerializer):
     user = UserSerializer(read_only=True)
+    
     class Meta:
         model = Curation
         fields = ['user', 'id', 'image', 'title', 'content', 'created_at']
