@@ -4,6 +4,7 @@ import BodyWrapper from "../../components/Bodywrapper";
 import styled from "styled-components";
 import TodayRecommand from "./homecomponents/TodayRecommand";
 import Searching from "./homecomponents/Searching";
+import Curation from "./homecomponents/Curation"; 
 import React from "react"; 
 
 const Div1 = styled.div`
@@ -28,7 +29,7 @@ export default function Home() {
       <BodyWrapper>
         <TodayRecommand />
         <Searching/>
-				<Recommendation>오늘의 추천장소 </Recommendation>
+				<Curation/>
 			</BodyWrapper>
 			<Footer />
 		</>
