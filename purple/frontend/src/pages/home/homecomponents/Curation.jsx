@@ -1,6 +1,4 @@
 import styled from "styled-components";
-import purplelogo from "../../../assets/purplelogo1.png";
-import cafesample from "../../../assets/cafesample.jpeg";
 import React from "react";
 import axios from "axios";
 import { useState, useEffect, useCallback } from "react";
@@ -15,6 +13,7 @@ const Div1 = styled.div`
 	text-align: center;
 	z-index: -5;
 	padding: none;
+	flex-direction: column;
 `;
 
 const LetterDiv1 = styled.div`
@@ -49,6 +48,9 @@ const LetterDiv3 = styled.div`
 	text-align: center;
 	letter-spacing: -0.408px;
 `;
+const CurationImg = styled.img`
+	width: 60px;
+`;
 
 export default function Curation() {
 	const [data, setData] = useState([]);
@@ -71,11 +73,11 @@ export default function Curation() {
 			<Div1>
 				{data.map((datas) => (
 					<>
-						<div>{datas.id}</div>
-						<img src={datas.image} />
-						<div>{datas.title}</div>
-						<div>{datas.content}</div>
-						<div>{datas.created_at}</div>
+						<div>id: {datas.id}</div>
+						<CurationImg src={datas.image} />
+						<div>title: {datas.title}</div>
+						<div>content: {datas.content}</div>
+						<div>created_at: {datas.created_at}</div>
 					</>
 				))}
 			</Div1>

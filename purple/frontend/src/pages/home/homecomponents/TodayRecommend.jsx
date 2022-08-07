@@ -65,7 +65,7 @@ const LetterDiv3 = styled.div`
 	color: #ffffff;
 `;
 
-export default function TodayRecommand() {
+export default function TodayRecommend() {
 	return (
 		<>
 			<Div1>
