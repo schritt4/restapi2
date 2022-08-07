@@ -1,6 +1,4 @@
 import styled from "styled-components";
-import purplelogo from "../../../assets/purplelogo1.png";
-import cafesample from "../../../assets/cafesample.jpeg";
 import React from "react";
 import axios from "axios";
 import { useState, useEffect, useCallback } from "react";

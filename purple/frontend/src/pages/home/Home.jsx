@@ -2,7 +2,7 @@ import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import BodyWrapper from "../../components/Bodywrapper";
 import styled from "styled-components";
-import TodayRecommand from "./homecomponents/TodayRecommand";
+import TodayRecommend from "./homecomponents/TodayRecommend";
 import Searching from "./homecomponents/Searching";
 import Curation from "./homecomponents/Curation"; 
 import React from "react"; 
@@ -27,7 +27,7 @@ export default function Home() {
 	return (
 		<>
       <BodyWrapper>
-        <TodayRecommand />
+        <TodayRecommend />
         <Searching/>
 				<Curation/>
 			</BodyWrapper>
