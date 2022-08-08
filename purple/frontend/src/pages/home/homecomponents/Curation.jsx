@@ -15,39 +15,11 @@ const Div1 = styled.div`
 	padding: none;
 	flex-direction: column;
 `;
-
-const LetterDiv1 = styled.div`
-	position: absolute;
-	margin-top: -70px;
-	font-weight: 400;
-	font-size: 17px;
-	line-height: 22px;
-	text-align: center;
-	letter-spacing: -0.408px;
+const CardsWrapper = styled.div`
+	display: flex;
+	overflow-x: scroll;
 `;
-const LetterDiv2 = styled.div`
-	position: absolute;
-	margin-top: 50px;
-	font-family: "Inter";
-	font-style: normal;
-	font-weight: 600;
-	font-size: 20px;
-	line-height: 22px;
-	letter-spacing: -0.408px;
-`;
-const LetterDiv3 = styled.div`
-	position: absolute;
-	margin-top: 180px;
 
-	font-family: "Noto Sans";
-	font-style: normal;
-	font-weight: 600;
-	font-size: 40px;
-	line-height: 22px;
-
-	text-align: center;
-	letter-spacing: -0.408px;
-`;
 const CurationImg = styled.img`
 	width: 60px;
 `;
@@ -71,15 +43,17 @@ export default function Curation() {
 	return (
 		<>
 			<Div1>
-				{data.map((datas) => (
-					<>
-						<div>id: {datas.id}</div>
-						<CurationImg src={datas.image} />
-						<div>title: {datas.title}</div>
-						<div>content: {datas.content}</div>
-						<div>created_at: {datas.created_at}</div>
-					</>
-				))}
+				<CardsWrapper>
+					{data.map((datas) => (
+						<>
+							<div>id: {datas.id}</div>
+							<CurationImg src={datas.image} />
+							<div>title: {datas.title}</div>
+							<div>content: {datas.content}</div>
+							<div>created_at: {datas.created_at}</div>
+						</>
+					))}
+				</CardsWrapper>
 			</Div1>
 		</>
 	);
