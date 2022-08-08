@@ -11,3 +11,43 @@ class Curation(models.Model):
 
     def __str__(self):
         return self.title
+
+class Location(models.Model):
+    loc_tag = models.TextField()
+
+    def __str__(self):
+        return self.loc_tag
+
+class Category(models.Model):
+    cat_tag = models.TextField()
+
+    def __str__(self):
+        return self.cat_tag
+
+class Purpose1(models.Model):
+    pur_tag = models.TextField()
+    
+    def __str__(self):
+        return self.pur_tag
+class Purpose2(models.Model):
+    pur_tag= models.TextField()
+
+    def __str__(self):
+        return self.pur_tag
+
+class Place(models.Model):
+    place = models.CharField(max_length=200)
+    info = models.TextField()
+    address = models.TextField()
+    open = models.TextField(null=True, blank=True)
+    number = models.TextField(null=True, blank=True)
+    sns = models.TextField(null=True, blank=True)
+    image = models.ImageField(upload_to='Cafe', null=True, blank=True)
+    loc = models.ForeignKey('Location', on_delete=models.CASCADE)
+    cat = models.ForeignKey('Category',on_delete=models.CASCADE)
+    pur1 = models.ForeignKey('Purpose1', on_delete=models.CASCADE, null=True, blank=True)
+    pur2 = models.ForeignKey('Purpose2', on_delete=models.CASCADE, null=True, blank=True)
+
+
+    def __str__(self):
+        return self.place

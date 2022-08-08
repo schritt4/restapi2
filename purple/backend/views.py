@@ -3,8 +3,8 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from django.http import Http404
 
-from .serializers import CurationSerializer
-from .models import Curation
+from .serializers import CurationSerializer, PlaceSerializer
+from .models import Curation, Place
 
 class CurationList(APIView):    
     def get(self, request):    # Curation 리스트 보여주기
@@ -24,3 +24,22 @@ class CurationDetail(APIView):
         serializer = CurationSerializer(curations, context={'request':request})
         return Response(serializer.data)
 
+class SearchView(APIView):
+    def get(self, request):
+        if not 'loc_id' in request.GET and not 'cat_id' in request.GET and not 'pur1_id' in request.GET and not 'pur2_id' in request.GET:
+            raise Http404
+
+        loc=request.GET.get('loc_id', None)
+        cat=request.GET.get('cat_id', None)
+        pur1=request.GET.get('pur1_id', None)
+        pur2=request.GET.get('pur2_id', None)
+        
+        if pur1:
+
+            places = Place.objects.filter(loc_id=loc, cat_id=cat, pur1_id=pur1)
+            serializer = PlaceSerializer(places, many=True)
+            return Response(serializer.data)
+        else:
+            places = Place.objects.filter(loc_id=loc, cat_id=cat, pur2_id=pur2)
+            serializer = PlaceSerializer(places, many=True)
+            return Response(serializer.data)
