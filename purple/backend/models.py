@@ -29,6 +29,7 @@ class Purpose1(models.Model):
     
     def __str__(self):
         return self.pur_tag
+
 class Purpose2(models.Model):
     pur_tag= models.TextField()
 
@@ -42,12 +43,11 @@ class Place(models.Model):
     open = models.TextField(null=True, blank=True)
     number = models.TextField(null=True, blank=True)
     sns = models.TextField(null=True, blank=True)
-    image = models.ImageField(upload_to='Cafe', null=True, blank=True)
+    image = models.ImageField(upload_to='place', null=True, blank=True)
     loc = models.ForeignKey('Location', on_delete=models.CASCADE)
     cat = models.ForeignKey('Category',on_delete=models.CASCADE)
     pur1 = models.ForeignKey('Purpose1', on_delete=models.CASCADE, null=True, blank=True)
     pur2 = models.ForeignKey('Purpose2', on_delete=models.CASCADE, null=True, blank=True)
-
 
     def __str__(self):
         return self.place

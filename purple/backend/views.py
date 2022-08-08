@@ -35,7 +35,6 @@ class SearchView(APIView):
         pur2=request.GET.get('pur2_id', None)
         
         if pur1:
-
             places = Place.objects.filter(loc_id=loc, cat_id=cat, pur1_id=pur1)
             serializer = PlaceSerializer(places, many=True)
             return Response(serializer.data)
