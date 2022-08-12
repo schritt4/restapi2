@@ -6,6 +6,8 @@ from django.http import Http404
 from .serializers import CurationSerializer, PlaceSerializer
 from .models import Curation, Place
 
+import csv
+
 class CurationList(APIView):    
     def get(self, request):    # Curation 리스트 보여주기
         curations = Curation.objects.all()
