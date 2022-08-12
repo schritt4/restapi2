@@ -43,7 +43,7 @@ class Place(models.Model):
     open = models.TextField(null=True, blank=True)
     number = models.TextField(null=True, blank=True)
     sns = models.TextField(null=True, blank=True)
-    image = models.ImageField(upload_to='place', null=True, blank=True)
+    image = models.TextField(null=True, blank=True)
     loc = models.ForeignKey('Location', on_delete=models.CASCADE)
     cat = models.ForeignKey('Category',on_delete=models.CASCADE)
     pur1 = models.ForeignKey('Purpose1', on_delete=models.CASCADE, null=True, blank=True)

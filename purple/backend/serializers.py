@@ -1,6 +1,6 @@
 from django.contrib.auth.models import User
 from rest_framework import serializers
-from .models import Curation, Location, Category, Purpose1, Purpose2, Place
+from .models import Curation, Place, Location, Category, Purpose1, Purpose2
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
