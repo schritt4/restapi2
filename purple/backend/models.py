@@ -48,8 +48,7 @@ class Place(models.Model):
     cat = models.ForeignKey('Category',on_delete=models.CASCADE)
     pur1 = models.ForeignKey('Purpose1', on_delete=models.CASCADE, null=True, blank=True)
     pur2 = models.ForeignKey('Purpose2', on_delete=models.CASCADE, null=True, blank=True)
-    lat = models.TextField(null=True, blank=True) #위도
-    lng = models.TextField(null=True, blank=True) #경도
+    latlng = models.TextField(null=True, blank=True) #위경도
 
     def __str__(self):
         return self.place
