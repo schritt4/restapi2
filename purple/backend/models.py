@@ -38,8 +38,8 @@ class Purpose2(models.Model):
 
 class Place(models.Model):
     place = models.CharField(max_length=200)
-    info = models.TextField()
-    address = models.TextField()
+    info = models.TextField(null=True, blank=True)
+    address = models.TextField(null=True, blank=True)
     open = models.TextField(null=True, blank=True)
     number = models.TextField(null=True, blank=True)
     sns = models.TextField(null=True, blank=True)
