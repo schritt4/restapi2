@@ -24,7 +24,7 @@ const number = location.state.number;
 const sns = location.state.sns;
 const image = location.state.image*/
 
-export default function ListUp(props ) {
+export default function ListUp(props) {
 	return (
 		<>
 			<CafeTitle>{props.id}</CafeTitle>
