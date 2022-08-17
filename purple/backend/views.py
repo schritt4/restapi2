@@ -27,7 +27,9 @@ class CurationDetail(APIView):
 class SearchView(APIView):
     def get(self, request):
         if not 'loc_id' in request.GET and not 'cat_id' in request.GET and not 'pur1_id' in request.GET and not 'pur2_id' in request.GET:
-            raise Http404
+            places = Place.objects.all()
+            serializer = PlaceSerializer(places, many=True)
+            return Response(serializer.data)
 
         loc=request.GET.get('loc_id', None)
         cat=request.GET.get('cat_id', None)
