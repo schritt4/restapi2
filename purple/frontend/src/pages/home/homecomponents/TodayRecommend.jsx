@@ -6,7 +6,7 @@ import React from "react";
 const Div1 = styled.div`
 	background-color: #f5f5f5;
 	width: 100vw;
-	height: 85vw;
+	height: 55vh;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -16,7 +16,7 @@ const Div1 = styled.div`
 `;
 const CafeImg = styled.img`
 	width: 100vw;
-	height: 85vw;
+	height: 55vh;
 	filter: brightness(50%);
 	z-index: 0;
 `;
