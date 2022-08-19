@@ -44,3 +44,15 @@ class SearchView(APIView):
             places = Place.objects.filter(loc_id=loc, cat_id=cat, pur2_id=pur2)
             serializer = PlaceSerializer(places, many=True)
             return Response(serializer.data)
+
+class PlaceDetail(APIView):
+    def get_object(self, pk):   # Curation 객체 가져오기
+        try:
+            return Place.objects.get(pk=pk)
+        except Place.DoesNotExist:
+            raise Http404
+
+    def get(self, request, pk, format=None):
+        places = self.get_object(pk)
+        serializer = PlaceSerializer(places, context={'request':request})
+        return Response(serializer.data)
